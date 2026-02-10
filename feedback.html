@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Zoorld</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Image -->
+    <div class="image-background">
+        <div class="image-overlay"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Header -->
+        <header class="form-header text-center">
+            <div class="brand-logo d-inline-flex align-items-center gap-2 mb-3">
+                <i class="fas fa-paw"></i>
+                <span>Zoorld</span>
+            </div>
+            <h1 class="display-5 fw-bold">Share Your Experience</h1>
+            <p class="lead opacity-75">Your feedback helps us create better wildlife experiences</p>
+        </header>
+
+        <!-- Feedback Form Card -->
+        <div class="feedback-card">
+            <div class="card-header text-center">
+                <div class="header-icon mb-3">
+                    <i class="fas fa-comment-alt"></i>
+                </div>
+                <h2 class="h3 mb-2">We Value Your Opinion</h2>
+                <p class="mb-0 opacity-75">Please take a moment to share your Zoorld experience with us</p>
+            </div>
+            
+            <div class="card-body p-4 p-lg-5">
+                <form id="feedbackForm" class="feedback-form">
+                    <!-- Name Field -->
+                    <div class="form-group mb-4">
+                        <div class="input-wrapper">
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Full Name" required>
+                            <label for="fullName" class="floating-label">Full Name</label>
+                            <span class="error-tooltip" id="nameError"></span>
+                        </div>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="form-group mb-4">
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required>
+                            <label for="email" class="floating-label">Email Address</label>
+                            <span class="error-tooltip" id="emailError"></span>
+                        </div>
+                    </div>
+
+                    <!-- Visit Type Dropdown -->
+                    <div class="form-group mb-4">
+                        <div class="input-wrapper">
+                            <i class="fas fa-ticket-alt input-icon"></i>
+                            <select class="form-select" id="visitType" name="visitType" required>
+                                <option value="" disabled selected>Select Visit Type</option>
+                                <option value="family">Family Visit</option>
+                                <option value="school">School Trip</option>
+                                <option value="group">Group Tour</option>
+                                <option value="couple">Couple's Day Out</option>
+                                <option value="solo">Solo Adventure</option>
+                                <option value="member">Member Visit</option>
+                            </select>
+                            <i class="fas fa-chevron-down select-arrow"></i>
+                            <span class="error-tooltip" id="visitError"></span>
+                        </div>
+                    </div>
+
+                    <!-- Star Rating -->
+                    <div class="form-group mb-4">
+                        <label class="rating-label d-flex align-items-center gap-2 mb-3">
+                            <i class="fas fa-star"></i>
+                            <span>Rate Your Experience</span>
+                        </label>
+                        <div class="star-rating justify-content-center d-flex" id="starRating">
+                            <input type="radio" name="rating" value="5" id="star5">
+                            <label for="star5" data-value="5"><i class="fas fa-star"></i></label>
+                            <input type="radio" name="rating" value="4" id="star4">
+                            <label for="star4" data-value="4"><i class="fas fa-star"></i></label>
+                            <input type="radio" name="rating" value="3" id="star3">
+                            <label for="star3" data-value="3"><i class="fas fa-star"></i></label>
+                            <input type="radio" name="rating" value="2" id="star2">
+                            <label for="star2" data-value="2"><i class="fas fa-star"></i></label>
+                            <input type="radio" name="rating" value="1" id="star1">
+                            <label for="star1" data-value="1"><i class="fas fa-star"></i></label>
+                        </div>
+                        <div class="rating-text text-center mt-2" id="ratingText"></div>
+                        <span class="error-tooltip d-block text-center" id="ratingError"></span>
+                    </div>
+
+                    <!-- Checkbox Group -->
+                    <div class="form-group mb-4">
+                        <label class="category-label d-block mb-3">What did you enjoy most?</label>
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <input class="checkbox-input" type="checkbox" name="enjoyed" value="animals" id="checkAnimals">
+                                <label class="checkbox-label w-100" for="checkAnimals">
+                                    <i class="fas fa-paw"></i>
+                                    <span>Animal Exhibits</span>
+                                </label>
+                            </div>
+                            <div class="col-6">
+                                <input class="checkbox-input" type="checkbox" name="enjoyed" value="habitat" id="checkHabitat">
+                                <label class="checkbox-label w-100" for="checkHabitat">
+                                    <i class="fas fa-tree"></i>
+                                    <span>Natural Habitats</span>
+                                </label>
+                            </div>
+                            <div class="col-6">
+                                <input class="checkbox-input" type="checkbox" name="enjoyed" value="staff" id="checkStaff">
+                                <label class="checkbox-label w-100" for="checkStaff">
+                                    <i class="fas fa-users"></i>
+                                    <span>Knowledgeable Staff</span>
+                                </label>
+                            </div>
+                            <div class="col-6">
+                                <input class="checkbox-input" type="checkbox" name="enjoyed" value="facilities" id="checkFacilities">
+                                <label class="checkbox-label w-100" for="checkFacilities">
+                                    <i class="fas fa-restroom"></i>
+                                    <span>Clean Facilities</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feedback Message -->
+                    <div class="form-group mb-4">
+                        <div class="input-wrapper textarea-wrapper">
+                            <i class="fas fa-pen input-icon"></i>
+                            <textarea class="form-control" id="feedbackMessage" name="feedbackMessage" rows="4" placeholder="Tell us more about your experience..."></textarea>
+                            <span class="char-count"><span id="charCurrent">0</span>/500</span>
+                            <span class="error-tooltip" id="messageError"></span>
+                        </div>
+                    </div>
+
+                    <!-- Recommendation -->
+                    <div class="form-group mb-4">
+                        <label class="recommend-label d-block mb-3">Would you recommend Zoorld to others?</label>
+                        <div class="d-flex flex-wrap gap-2 justify-content-center">
+                            <input type="radio" name="recommend" value="yes" id="recommendYes" class="btn-check">
+                            <label class="btn btn-recommend flex-fill" for="recommendYes">
+                                <i class="fas fa-thumbs-up me-2"></i>Yes
+                            </label>
+                            <input type="radio" name="recommend" value="maybe" id="recommendMaybe" class="btn-check">
+                            <label class="btn btn-recommend flex-fill" for="recommendMaybe">
+                                <i class="fas fa-question me-2"></i>Maybe
+                            </label>
+                            <input type="radio" name="recommend" value="no" id="recommendNo" class="btn-check">
+                            <label class="btn btn-recommend flex-fill" for="recommendNo">
+                                <i class="fas fa-thumbs-down me-2"></i>No
+                            </label>
+                        </div>
+                        <span class="error-tooltip d-block text-center mt-2" id="recommendError"></span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-group mt-4">
+                        <button type="submit" class="btn btn-submit w-100 py-3" id="submitBtn">
+                            <span class="btn-content">
+                                <i class="fas fa-paper-plane me-2"></i>Submit Feedback
+                            </span>
+                            <span class="btn-loading">
+                                <i class="fas fa-spinner fa-spin me-2"></i>Sending...
+                            </span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Success Message -->
+                <div class="success-message" id="successMessage">
+                    <div class="success-icon mb-4">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="h3 mb-3">Thank You!</h3>
+                    <p class="mb-3">Your feedback has been submitted successfully.</p>
+                    <p class="success-note mb-4">We appreciate you taking the time to help us improve Zoorld.</p>
+                    <button class="btn btn-reset" id="resetBtn">
+                        <i class="fas fa-redo me-2"></i>Submit Another Response
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer - Same as Home & Contact -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <i class="fas fa-paw me-2"></i>
+                        <span class="brand-text">Zoorld</span>
+                    </div>
+                    <p class="footer-description">
+                        Where wildlife conservation meets unforgettable experiences. 
+                        Join us in our mission to protect and preserve nature's wonders.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../../Home.html">Home</a></li>
+                        <li><a href="../../Home.html#about">About Us</a></li>
+                        <li><a href="../../Home.html#features">Features</a></li>
+                        <li><a href="../../Home.html#gallery">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h4 class="footer-title">Visit Zoorld</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Opening Hours</a></li>
+                        <li><a href="#">Tickets & Passes</a></li>
+                        <li><a href="#">Group Visits</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h4 class="footer-title">Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt me-2"></i> 123 Wildlife Avenue</p>
+                        <p><i class="fas fa-phone me-2"></i> (555) 123-4567</p>
+                        <p><i class="fas fa-envelope me-2"></i> info@zoorld.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Zoorld. All rights reserved. | Designed with <i class="fas fa-heart text-danger"></i> for Wildlife</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="main.js"></script>
+</body>
+</html>
